@@ -40,9 +40,6 @@ def home():
 
         audio_file = audio_path
 
-        # Goodbye message
-        goodbye_message = "Goodbye! Have a great day!"
-
     return render_template(
         'index.html',
         languages=languages,
