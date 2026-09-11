@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request
 import googletrans
 from gtts import gTTS
@@ -8,11 +9,13 @@ app = Flask(__name__)
 translator = googletrans.Translator()
 languages = googletrans.LANGUAGES
 
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
 
     translated_text = ""
     audio_file = None
+    goodbye_message = ""
 
     if request.method == 'POST':
 
@@ -37,12 +40,17 @@ def home():
 
         audio_file = audio_path
 
+        # Goodbye message
+        goodbye_message = "Goodbye! Have a great day!"
+
     return render_template(
         'index.html',
         languages=languages,
         translated_text=translated_text,
-        audio_file=audio_file
+        audio_file=audio_file,
+        goodbye_message=goodbye_message
     )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
