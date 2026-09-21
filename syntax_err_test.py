@@ -7,7 +7,7 @@ class UserService:
 
     def create_user(self, name: str, email: str):
         user = {
-            "name": name,
+            "name": name, 
             "email": email,
         }
 
