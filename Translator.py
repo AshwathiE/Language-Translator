@@ -4,7 +4,14 @@ translator = googletrans.Translator()
 
 print(googletrans.LANGUAGES)
 
-translated = translator.translate('How are you', 
-                     dest = 'hi')
+language = input("Enter language code: ")
 
-print(translated.text)
+if language not in googletrans.LANGUAGES:
+    print("Invalid language code")
+else:
+    translated = translator.translate(
+        "How are you",
+        dest=language
+    )
+
+    print(translated.text)
